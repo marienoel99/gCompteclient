@@ -1,0 +1,29 @@
+framework:
+  workflows:
+    enregistrement_client:
+      type: workflow
+      supports:
+        - AppBundle\Entity\Personne
+        - AppBundle\Entity\Compte
+      initial_place: client
+      places:
+        - client
+        - charge
+        - chefAgence
+        - middleOffice
+      transitions:
+        enregistrement:
+          from: client
+          to: charge
+        validation1:
+          from: charge
+          to: chefAgence
+        validation2:
+          from: chefAgence
+          to: middleOffice
+        echec1:
+          from: chefAgence
+          to: charge
+        echec2:
+          from: middleOffice
+          to: chefAgence

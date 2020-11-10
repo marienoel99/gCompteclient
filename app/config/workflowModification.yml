@@ -1,0 +1,40 @@
+framework:
+  workflows:
+    modification:
+      type: state_machine
+      supports:
+        - AppBundle\Entity\Personne
+      initial_place: charge
+      places:
+        - charge
+        - controleur
+        - modifier
+        - verifier
+        - autoriser
+        - rejeter
+        - enregistrer
+      transitions:
+        modification_information:
+          from: charge
+          to: modifier
+        transmission:
+          from: modifier
+          to: controleur
+        verification:
+          from: controleur
+          to: verifier
+        autorise_modification:
+          from: verifier
+          to: autoriser
+        refuser_modification:
+          from: verifier
+          to: rejeter
+        enregistrement:
+          from: autoriser
+          to: enregistrer
+        message_succes:
+          from: enregistrer
+          to: charge
+        message_erreur:
+          from: rejeter
+          to: charge

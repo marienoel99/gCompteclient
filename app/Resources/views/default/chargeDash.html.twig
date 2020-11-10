@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="chargeRoot">
+        <div class="chargeTitle">chargé / tableau de bord </div>
+        <img id="back" class="back" src="{{ asset('arrow.svg') }}">
+        <div class="chargeNav">
+            <div class="cNavOption">
+                <div class="cNavOptionTitle">Espace chargé</div>
+                <div class="cNavOptionMenu">
+                    <div>
+                        <a id="nouveau">nouveau client<img src="{{ asset('add.svg') }}"></a>
+                        <a>notifications<img src="{{ asset('notification.svg') }}"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="cNavOption2">
+                <div>Demande de modification</div>
+                <div>demande d'ouverture de compte</div>
+            </div>
+            <div class="statistique">
+                <div class="statistiqueTitle">
+                    <div class="cNavOptionTitle">Statistique</div>
+                </div>
+                <div class="statistiqueBody">
+                    <div class="statistiqueBodyEl12">
+                        <div >Demande de modification validée: 12</div>
+                        <div>compte en attente d'activation: 15</div>
+                    </div>
+                    <div class="statistiqueBodyEl12">
+                        <div >Compte actif: 13</div>
+                    </div>
+                    <div class="statistiqueBodyEl12">
+                        <div>Demande de modification rejetée: 2</div>
+                        <div>demande d'ouverture de compte rejtée</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer">Copyright ©2020.OGI-Sarl - login page</div>
+        <script src="{{ asset('js/charge.js') }}"></script>
+    </div>
+{% endblock %}
