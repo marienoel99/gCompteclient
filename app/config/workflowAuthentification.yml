@@ -1,0 +1,36 @@
+framework:
+  workflows:
+    authentification_utilisateur:
+      type: state_machine
+      supports:
+        - AppBundle\Entity\Utilisateur
+      initial_place: utilisateur
+      places:
+        - utilisateur
+        - submit
+        - authentifier
+        - echec
+        - succes
+        - page_acceuil
+      transitions:
+        soumission:
+          from: utilisateur
+          to: submit
+        authentification:
+          from: submit
+          to: authentifier
+        information_Incorrecte:
+          from: authentifier
+          to: echec
+        information_correcte:
+          from: authentifier
+          to: succes
+        message_erreur:
+          from: echec
+          to: utilisateur
+        message_succes:
+          from: succes
+          to: utilisateur
+        redirection_page_Acceuil:
+          from: succes
+          to: page_acceuil

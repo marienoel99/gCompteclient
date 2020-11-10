@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="loginRoot">
+        <form class="loginForm" action="" method="post">
+            <div class="loginFormTitle">S'identifier</div>
+            <div class="formGroup">
+                <img src="{{ asset('user.svg') }}" class="image">
+                <label >nom d'utilisateur</label>
+                <input name="username" type="text" class="formControl">
+            </div>
+            <div class="formGroup">
+                <img src="{{ asset('padlock.svg') }}" class="image">
+                <label>mot de passe</label>
+                <input name='pass' type='password' class="formControl">
+                <button class="butt">se connecter</button>
+            </div>
+
+        </form>
+        <div class="footer">Copyright ©2020.OGI-Sarl - login page</div>
+        <script src="{{ asset('js/login.js') }}"></script>
+    </div>
+ {% endblock %}

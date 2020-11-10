@@ -1,0 +1,194 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Compte
+ *
+ * @ORM\Table(name="compte")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\CompteRepository")
+ */
+class Compte
+{
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Agence")
+     */
+    private $agence;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="numCompte", type="string", length=255)
+     */
+    private $numCompte;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="intituleCompte", type="string", length=255)
+     */
+    private $intituleCompte;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateCreation", type="datetime")
+     */
+    private $dateCreation;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="signatairePrl", type="string", length=255)
+     */
+    private $signatairePrl;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=255)
+     */
+    private $status;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set numCompte
+     *
+     * @param string $numCompte
+     *
+     * @return Compte
+     */
+    public function setNumCompte($numCompte)
+    {
+        $this->numCompte = $numCompte;
+
+        return $this;
+    }
+
+    /**
+     * Get numCompte
+     *
+     * @return string
+     */
+    public function getNumCompte()
+    {
+        return $this->numCompte;
+    }
+
+    /**
+     * Set intituleCompte
+     *
+     * @param string $intituleCompte
+     *
+     * @return Compte
+     */
+    public function setIntituleCompte($intituleCompte)
+    {
+        $this->intituleCompte = $intituleCompte;
+
+        return $this;
+    }
+
+    /**
+     * Get intituleCompte
+     *
+     * @return string
+     */
+    public function getIntituleCompte()
+    {
+        return $this->intituleCompte;
+    }
+
+    /**
+     * Set dateCreation
+     *
+     * @param \DateTime $dateCreation
+     *
+     * @return Compte
+     */
+    public function setDateCreation($dateCreation)
+    {
+        $this->dateCreation = $dateCreation;
+
+        return $this;
+    }
+
+    /**
+     * Get dateCreation
+     *
+     * @return \DateTime
+     */
+    public function getDateCreation()
+    {
+        return $this->dateCreation;
+    }
+
+    /**
+     * Set signatairePrl
+     *
+     * @param string $signatairePrl
+     *
+     * @return Compte
+     */
+    public function setSignatairePrl($signatairePrl)
+    {
+        $this->signatairePrl = $signatairePrl;
+
+        return $this;
+    }
+
+    /**
+     * Get signatairePrl
+     *
+     * @return string
+     */
+    public function getSignatairePrl()
+    {
+        return $this->signatairePrl;
+    }
+
+    /**
+     * Set status
+     *
+     * @param string $status
+     *
+     * @return Compte
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+}
+

@@ -1,0 +1,28 @@
+framework:
+  workflows:
+    operation_client:
+      type: state_machine
+      supports:
+        - AppBundle\Entity\Operation
+      initial_place: client
+      places:
+        - client
+        - caissier
+        - operationValider
+        - operationRejeter
+      transitions:
+        lancerOperation:
+          from: client
+          to: caissier
+        rejet:
+          from: caissier
+          to: operationRejeter
+        validation:
+          from: caissier
+          to: operationValider
+        rejeter:
+          from: operationRejeter
+          to: client
+        valider:
+          from: operationValider
+          to: client

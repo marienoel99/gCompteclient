@@ -1,0 +1,308 @@
+.chargeRoot{
+     position: absolute;
+     width: 100%;
+     top:70px;
+     height:calc(100% - 100px);
+     display:flex;
+     flex-direction: column;
+     align-items: center;
+
+
+ }
+.clientRoot{
+    position: absolute;
+    width: 100%;
+    top:0px;
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.chargeTitle{
+    position:absolute;
+    top:20px;
+    left:25px;
+    font-size: 13px;
+    color:rgba(137,139,136,0.6);
+}
+.chargeNav{
+    width: 90%;
+    height:130px;
+    position: relative;
+    top:70px;
+    box-shadow: 0px 4px 9px rgba(0,0,0,0.15);
+
+}
+.cNavOption{
+    position:absolute;
+    display: grid;
+    grid-template-columns: 25% 75%;
+    width: 100%;
+    background-color:rgba(10,10,10,0.07);
+    height: 45px;
+}
+
+.cNavOptionTitle{
+    padding-top:15px;
+    text-align:justify;
+    padding-left:15px;
+    font-weight: 600;
+    color: #01579b;
+    font-size: 14px;
+}
+.cNavOptionMenu{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+.cNavOptionMenu div{
+    width:350px;
+    height: 25px;
+    position: absolute;
+    right: 0px;
+    padding-left:40px;
+    display:grid;
+    grid-template-columns: repeat(2,auto);
+}
+
+.cNavOptionMenu div a{
+    border:none;
+    text-align: center;
+    height: 25px;
+    width:150px;
+    padding-top:5px;
+    background-color:white;
+    box-shadow: 0px 0px 2px 0px rgba(28,28,28,0.2);
+    color: #01579b;
+    outline: none;
+    font-size: 13px;
+    border-radius:20px;
+
+
+}
+img:hover{
+    cursor: pointer;
+}
+
+.cNavOptionMenu div a:hover{
+    border:none;
+    cursor: pointer;
+    box-shadow: 0px 0px 8px 0px rgba(28,28,28,0.2);
+
+}
+.cNavOptionMenu div a img{
+    position: relative;
+    top:2px;
+    margin-left:5px;
+}
+.cNavOption2{
+    position:absolute;
+
+    bottom: 0px;
+    margin-bottom: 5px;
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+    width: 100%;
+    justify-content:center;
+    height: 35px;
+}
+.cNavOption2 div{
+
+    padding-top:8px;
+    height: 25px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 12px;
+    color: white;
+
+    background-color: #01579b;
+    margin: 20px;
+    width:31%;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+
+}
+.cNavOption2 div:hover{
+    cursor: pointer;
+    box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
+}
+.statistique{
+    width: 100%;
+    height:300px;
+    position: relative;
+    top:200px;
+    box-shadow: 0px 4px 9px rgba(0,0,0,0.15);
+}
+.statistiqueTitle{
+    position:absolute;
+    width: 100%;
+    background-color:rgba(10,10,10,0.07);
+    height: 45px;
+}
+.statistiqueBody{
+    position:absolute;
+    bottom: 0px;
+    display:grid;
+    grid-template-rows:repeat(3,auto);
+    width: 100%;
+    height:calc(100% - 45px);
+}
+a{
+    text-decoration: none;
+}
+.statistiqueBodyEl12{
+    bottom: 0px;
+    margin-bottom: 5px;
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+    width: 100%;
+    justify-content:center;
+
+    height:50px;
+
+
+}
+.statistiqueBodyEl12 div{
+    padding-top:8px;
+    height: 25px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 12px;
+    margin: 20px;
+    color: #01579b;
+    width:31%;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+}
+.statistiqueBodyEl12 div:hover{
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+.clientTitle{
+    position:absolute;
+    width:calc(100% - 15px);
+    background-color:#01579b;
+    color:white;
+    font-size: 12px;
+    height: 30px;
+    padding-top:15px;
+    text-align:justify;
+    padding-left:15px;
+
+}
+.back{
+    position:absolute;
+    top:20px;
+    visibility: hidden;
+    right:25px;
+    font-size: 13px;
+    color:rgba(137,139,136,0.6);
+}
+.choixPersonne{
+   position:absolute;
+    top:45px;
+    width: 100%;
+
+    height:calc(100% - 45px);
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.choixPersonne h4{
+    position:absolute;
+    top:10px;
+    color:#01579b;
+    font-size: 12px;
+}
+.formDiv{
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    top:90px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.formDiv *{
+    outline: none;
+    width:30%;
+    height:40px;
+    color:#01579b;
+    border-radius:10px;
+    border: 0.2px solid rgba(0,0,0,0.1);
+}
+.choixButton{
+    border:none;
+    text-align: center;
+    height: 25px;
+    width:150px;
+    position: absolute;
+
+    background-color:#01579b;
+    box-shadow: 0px 0px 2px 0px rgba(28,28,28,0.2);
+    color: white;
+    outline: none;
+    font-size: 13px;
+    border-radius:20px;
+
+    bottom:20px;
+}
+@media all and (max-width:800px) {
+    .cNavOptionMenu div{
+        width:290px;
+
+        height: 25px;
+        position: absolute;
+        right: 0px;
+        padding:10px;
+        display:grid;
+        grid-template-columns: repeat(2,auto);
+    }
+
+    .cNavOptionMenu div a{
+        border:none;
+        text-align: center;
+        height: 25px;
+        width:140px;
+        margin:0px 2px;
+        background-color:white;
+        box-shadow: 0px 0px 2px 0px rgba(28,28,28,0.2);
+        color: #01579b;
+        outline: none;
+        font-size: 13px;
+        border-radius:20px;
+        font-weight: 500;
+
+    }
+    .cNavOptionMenu div a img{
+        position: relative;
+        top:3px;
+    }
+    .cNavOptionTitle{
+        padding-top:15px;
+        text-align:justify;
+        padding-left:15px;
+        font-weight: 600;
+        color: #01579b;
+        font-size: 12px;
+    }
+
+    .cNavOption2 div{
+        width: 36%;
+        font-size: 10px;
+
+    }
+    .statistiqueBodyEl12 div{
+        width: 36%;
+        font-size: 10px;
+
+    }
+}
+
+

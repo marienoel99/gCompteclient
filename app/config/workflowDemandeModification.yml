@@ -1,0 +1,40 @@
+framework:
+  workflows:
+    demande_modification:
+      type: state_machine
+      supports:
+        - AppBundle\Entity\Personne
+      initial_place: charge
+      place:
+        - charge
+        - controleur
+        - motif_modification
+        - verifier
+        - demande_valider
+        - demande_rejeter
+        - modifier
+      transitions:
+        initier_demande:
+          from: charge
+          to: motif_modification
+        lancer_demande:
+          from: motif_modification
+          to: controleur
+        verification:
+          from: controleur
+          to: verifier
+        rejet:
+          from: verifier
+          to: demande_rejeter
+        validation:
+          from: verifier
+          to: demande_valider
+        donner_le_droit_de_modification:
+          from: demande_valider
+          to: charge
+        interdire_la_modification:
+          from: demande_rejeter
+          to: charge
+        modification_information:
+          from: charge
+          to: modifier

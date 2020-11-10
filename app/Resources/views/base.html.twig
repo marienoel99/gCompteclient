@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="stylesheet"  href="{{ asset('css/login.css') }}" />
+        <link rel="stylesheet"  href="{{ asset('css/base.css') }}" />
+        <link rel="stylesheet"  href="{{ asset('css/charge.css') }}" />
+    </head>
+    <body>
+        <div class="root">
+            <div class="nav">
+                <div class="navTitle">GCompteClient</div>
+                <div class="navUser">
+                    <div>Francis OLODO</div>
+                    <div>
+                        <img src="{{ asset('userProfil.svg') }}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
