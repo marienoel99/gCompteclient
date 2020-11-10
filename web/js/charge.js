@@ -10,8 +10,9 @@ document.getElementById('nouveau').onclick=function(){
             window.location.pathname='/charge'
         }
         document.getElementById('perform').onsubmit=function(ev){
+            alert(ev)
             ev.preventDefault();
-            fetch()
+
         }
     }).catch(error=>{
         console.log(error)

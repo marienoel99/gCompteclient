@@ -14,14 +14,12 @@ use Doctrine\ORM\Mapping\InheritanceType;
  * @ORM\Table(name="personne")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PersonneRepository")
  * @Entity
- * @InheritanceType("JOINED")
+ * @InheritanceType("SINGLE_TABLE")
  * @DiscriminatorColumn(name="discr", type="string")
- * @DiscriminatorMap({"personnePhysique" = "PersonnePhysique", "personneMoral" = "PersonneMoral"})
+ * @DiscriminatorMap({"physique" = "personnePhysique", "moral" = "PersonneMoral"})
  */
 abstract class Personne
 {
-
-
     /**
      * @var int
      *
