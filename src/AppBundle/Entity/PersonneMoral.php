@@ -46,6 +46,12 @@ class PersonneMoral extends Personne
      * @ORM\Column(name="registre", type="string", length=255)
      */
     private $registre;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ifu", type="string", length=255)
+     */
+    private $ifu;
 
 
     /**
@@ -128,5 +134,27 @@ class PersonneMoral extends Personne
         return $this->registre;
     }
 
+    /**
+     * Set ifu
+     *
+     * @param string $ifu
+     *
+     * @return PersonneMoral
+     */
+    public function setIfu($ifu)
+    {
+        $this->registre = $ifu;
+
+        return $this;
+    }
+    /**
+     * Get registre
+     *
+     * @return string
+     */
+    public function getIfu()
+    {
+        return $this->ifu;
+    }
 }
 

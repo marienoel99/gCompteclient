@@ -3,24 +3,26 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PersonneType extends AbstractType
+class personnePhysiqueType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('tel')->add('mail')->add('status')->add('typePersonne')->add('createdAt')->add('updateAt')->add('createdBy');
+        $builder->add('nom')->add('urlCarte',FileType::class)->add('prenom')->add('dateNaissance',DateType::class);
     }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Personne'
+            'data_class' => 'AppBundle\Entity\personnePhysique'
         ));
     }
 
@@ -29,7 +31,7 @@ class PersonneType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_personne';
+        return 'appbundle_personnephysique';
     }
 
 

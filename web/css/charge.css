@@ -212,9 +212,10 @@ a{
     align-items: center;
     justify-content: center;
 }
+
 .choixPersonne h4{
     position:absolute;
-    top:10px;
+    top:15px;
     color:#01579b;
     font-size: 12px;
 }
@@ -229,7 +230,8 @@ a{
     justify-content: space-around;
 
 }
-.formDiv *{
+
+.formDiv  *{
     outline: none;
     width:30%;
     height:40px;
@@ -237,6 +239,22 @@ a{
     border-radius:10px;
     border: 0.2px solid rgba(0,0,0,0.1);
 }
+
+.formDiv2 div input{
+    outline: none;
+    width:100%;
+    height:40px;
+    color:#01579b;
+    border-radius:10px;
+    border: 0.2px solid rgba(0,0,0,0.1);
+}
+.inchange{
+   padding-top:10px;
+    height:20px;
+    padding-left:10px;
+    width:calc(100% - 10px);
+}
+
 .choixButton{
     border:none;
     text-align: center;
@@ -253,15 +271,46 @@ a{
 
     bottom:20px;
 }
+.formDiv2{
+    height: 50px;
+    width: 100%;
+    margin-top:10px;
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: space-around;
+
+}
+.formDiv2 div{
+    display: flex;
+    flex-direction: row;
+    width: 40%;
+    height: 100%;
+    justify-content:center ;
+}
+.da{
+
+
+    border-radius:10px;
+    border: 0.2px solid rgba(0,0,0,0.1);
+    height: 100%;
+
+}
+.da *{
+    border:none;
+    color:#01579b;
+
+    width:30%;
+}
 @media all and (max-width:800px) {
     .cNavOptionMenu div{
-        width:290px;
-
         height: 25px;
         position: absolute;
         right: 0px;
         padding:10px;
         display:grid;
+
         grid-template-columns: repeat(2,auto);
     }
 

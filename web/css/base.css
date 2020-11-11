@@ -4,6 +4,7 @@
 body{
     margin:0;
     padding:0;
+    background-color:white;
 }
 .root{
     position:absolute;
@@ -13,6 +14,7 @@ body{
 .nav{
     position:fixed;
     height:60px;
+    z-index: 5000;
     width:100%;
     box-shadow:0px 10px 20px -5px rgba(0,0,0,0.3);
     background-color:#01579b;

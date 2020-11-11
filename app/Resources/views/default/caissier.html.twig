@@ -1,0 +1,18 @@
+{% extends 'base.html.twig'%}
+{% block body %}
+    <div class="caissierRoot">
+       <div class="caissierNavOption">
+          <div class="caissierNavTitle">Espace Caissier</div>
+            <div>
+                <div class="caisseNavMenu">
+                    <div>
+                        <a href="{{ asset('/operation') }}">nouvelle opération</a>
+                        <a href="{{ asset('/mesOperations') }}"> mes opérations</a>
+                    </div>
+
+                </div>
+            </div>
+
+       </div>
+    </div>
+{% endblock %}

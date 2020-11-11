@@ -1,0 +1,26 @@
+<div class="clientRoot">
+    <div class="clientTitle">Nouveau client</div>
+    {{ form_start(form,{'attr':{'class':'choixPersonne'}}) }}
+        <h4>Veuillez remplir ce formulaire </h4>
+
+        <div class="formDiv2">
+            <div>
+                {{ form_widget(form.raisonSocial,{'attr':{'label':' ','placeholder':' raison social ...'}}) }}
+            </div>
+            <div>
+                {{ form_widget(form.representant,{'attr':{'label':' ','placeholder':' représentant...'}}) }}
+            </div>
+
+        </div>
+        <div class="formDiv2">
+            <div>
+                {{ form_widget(form.ifu,{'attr':{'class':'inchange'}}) }}
+            </div>
+           <div>
+               {{ form_widget(form.registre,{'attr':{'label':' ','type':'date','class':'inchange'}}) }}
+           </div>
+
+        </div>
+        <button type="submit" class="choixButton">enregistrer</button>
+    {{ form_end(form) }}
+</div>

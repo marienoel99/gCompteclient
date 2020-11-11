@@ -1,0 +1,25 @@
+<div class="clientRoot">
+    <div class="clientTitle">Nouveau client</div>
+        {{ form_start(form,{'attr':{'class':'choixPersonne'}}) }}
+            <h4>Veuillez remplir ce formulaire</h4>
+
+            <div class="formDiv2">
+                <div>
+                        {{ form_widget(form.nom,{'attr':{'label':' ','placeholder':' nom du prospect...'}}) }}
+                </div>
+                <div>
+                        {{ form_widget(form.prenom,{'attr':{'label':' ','placeholder':' prenom du prospect...'}}) }}
+                </div>
+
+            </div>
+            <div class="formDiv2">
+
+                        {{ form_widget(form.dateNaissance,{'attr':{'label':' ','class':'da','placeholder':' nom du client...'}}) }}
+
+                    <div>
+                        {{ form_widget(form.urlCarte,{'attr':{'label':' ','class':'inchange'}}) }}
+                    </div>
+            </div>
+            <button type="submit" class="choixButton">enregistrer</button>
+        {{ form_end(form) }}
+</div>
