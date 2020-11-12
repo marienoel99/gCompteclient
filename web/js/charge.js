@@ -24,11 +24,21 @@ document.getElementById('nouveau').onclick=function(){
                 'Content-Type':'application/json',
                 body:JSON.stringify(data)
             }).then(res=>{
-                return res.text()
-            }).then(res=>{
-                document.getElementsByClassName('statistique')[0].innerHTML=res
+                if(res.status==403){
+                    return res.status;
+                }else{
+                    return res.text()
+                }
 
-                document.getElementById('title').innerHTML+='/personne'
+            }).then(res=>{
+                if(res==403){
+                    document.getElementById('inf').innerHTML='cette personne existe déjà';
+                    document.getElementById('inf').style.color='red';
+                }else{
+                    document.getElementsByClassName('statistique')[0].innerHTML=res
+                    document.getElementById('title').innerHTML+='/personne'
+                }
+
             }).catch(error=>{
                 alert(error)
             })

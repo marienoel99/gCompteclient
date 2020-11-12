@@ -1,6 +1,6 @@
 <div class="clientRoot">
     <div class="clientTitle">Nouveau client</div>
-    {{ form_start(form,{'attr':{'class':'choixPersonne'}}) }}
+    {{ form_start(form,{'attr':{'class':'choixPersonne','action': path('newp'), 'method': 'POST'}}) }}
         <h4>Veuillez remplir ce formulaire </h4>
 
         <div class="formDiv2">

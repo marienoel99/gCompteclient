@@ -54,15 +54,7 @@ class PersonneMoral extends Personne
     private $ifu;
 
 
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+
 
     /**
      * Set raisonSocial
@@ -111,6 +103,7 @@ class PersonneMoral extends Personne
     {
         return $this->representant;
     }
+
     /**
      * Set registre
      *
@@ -124,6 +117,7 @@ class PersonneMoral extends Personne
 
         return $this;
     }
+
     /**
      * Get registre
      *
@@ -143,12 +137,13 @@ class PersonneMoral extends Personne
      */
     public function setIfu($ifu)
     {
-        $this->registre = $ifu;
+        $this->ifu = $ifu;
 
         return $this;
     }
+
     /**
-     * Get registre
+     * Get ifu
      *
      * @return string
      */
@@ -157,4 +152,3 @@ class PersonneMoral extends Personne
         return $this->ifu;
     }
 }
-

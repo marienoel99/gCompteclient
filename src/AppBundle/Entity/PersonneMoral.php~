@@ -1,0 +1,58 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * PersonneMoral
+ *
+ * @ORM\Table(name="personne_moral")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\PersonneMoralRepository")
+ */
+class PersonneMoral extends Personne
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mail", type="string", length=255)
+     */
+    private $mail;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="raisonSocial", type="string", length=255)
+     */
+
+    private $raisonSocial;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="representant", type="string", length=255)
+     */
+    private $representant;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="registre", type="string", length=255)
+     */
+    private $registre;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ifu", type="string", length=255)
+     */
+    private $ifu;
+
+
+
+}

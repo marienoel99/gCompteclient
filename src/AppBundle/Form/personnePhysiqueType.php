@@ -15,7 +15,10 @@ class personnePhysiqueType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom')->add('urlCarte',FileType::class)->add('prenom')->add('dateNaissance',DateType::class);
+        $builder->add('nom')->add('urlCarte',FileType::class)->add('prenom')->add('dateNaissance',DateType::class,[
+        'placeholder' => 'date de naissance',
+            'widget' => 'single_text',
+]);
     }/**
      * {@inheritdoc}
      */

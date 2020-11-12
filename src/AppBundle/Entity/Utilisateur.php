@@ -18,7 +18,7 @@ class Utilisateur
      */
     private $agence;
     /**
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Utilisateur")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\personnePhysique")
      */
     private  $personne;
 

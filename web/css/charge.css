@@ -295,6 +295,7 @@ a{
     border-radius:10px;
     border: 0.2px solid rgba(0,0,0,0.1);
     height: 100%;
+    border:1px solid red;
 
 }
 .da *{
