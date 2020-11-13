@@ -46,6 +46,12 @@ class Compte
      */
     private $dateCreation;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="signatairePrl", type="string", length=255)
+     */
+    private $signatairePrl;
 
     /**
      * @var string
@@ -137,7 +143,29 @@ class Compte
         return $this->dateCreation;
     }
 
+    /**
+     * Set signatairePrl
+     *
+     * @param string $signatairePrl
+     *
+     * @return Compte
+     */
+    public function setSignatairePrl($signatairePrl)
+    {
+        $this->signatairePrl = $signatairePrl;
 
+        return $this;
+    }
+
+    /**
+     * Get signatairePrl
+     *
+     * @return string
+     */
+    public function getSignatairePrl()
+    {
+        return $this->signatairePrl;
+    }
 
     /**
      * Set status
@@ -162,28 +190,5 @@ class Compte
     {
         return $this->status;
     }
-
-    /**
-     * Set agence
-     *
-     * @param \AppBundle\Entity\Agence $agence
-     *
-     * @return Compte
-     */
-    public function setAgence(\AppBundle\Entity\Agence $agence = null)
-    {
-        $this->agence = $agence;
-
-        return $this;
-    }
-
-    /**
-     * Get agence
-     *
-     * @return \AppBundle\Entity\Agence
-     */
-    public function getAgence()
-    {
-        return $this->agence;
-    }
 }
+

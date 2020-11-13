@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Compte;
 use AppBundle\Entity\PersonneMoral;
 use AppBundle\Entity\personnePhysique;
 use AppBundle\Entity\Temp;
@@ -45,6 +46,7 @@ class ChargeController extends Controller
 
         $data = json_decode($request->getContent());
         $personneMoral = new PersonneMoral();
+        $compte=new Compte();
         $personnePhysique = new personnePhysique();
         $form2 = $this->createForm('AppBundle\Form\PersonneMoralType', $personneMoral);
         $form = $this->createForm('AppBundle\Form\personnePhysiqueType', $personnePhysique);
@@ -75,7 +77,16 @@ class ChargeController extends Controller
                 $personnePhysique->setUpdateAt('22-12-99');
                 $manager = $this->getDoctrine()->getManager();
                 $manager->persist($personnePhysique);
+                $compte->setDateCreation('22-12-99');
+                $compte->setNumCompte(uniqid());
+                $compte->setIntituleCompte('francis BOA');
+                $compte->setStatus('actif');
+                $repository = $this->getDoctrine()->getRepository('AppBundle:Agence');
+                $reu = $repository->find(1);
+                $compte->setAgence($reu);
+                $manager->persist($compte);
                 $manager->flush();
+                $request->getSession()->getFlashBag()->add('success', 'Informations transmise');
                 return $this->redirectToRoute('chargeDash');
             }
 
@@ -131,7 +142,16 @@ class ChargeController extends Controller
             $personneMoral->setUpdateAt('22-12-99');
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($personneMoral);
+            $compte->setDateCreation('22-12-99');
+            $compte->setNumCompte(uniqid());
+            $compte->setIntituleCompte('francis BOA');
+            $compte->setStatus('actif');
+            $repository = $this->getDoctrine()->getRepository('AppBundle:Agence');
+            $reu = $repository->find(1);
+            $compte->setAgence($reu);
+            $manager->persist($compte);
             $manager->flush();
+            $request->getSession()->getFlashBag()->add('success', 'Informations transmise');
              return $this->redirectToRoute('chargeDash');
 
 
@@ -139,7 +159,7 @@ class ChargeController extends Controller
 
 
         if ($request->getContent()) {
-            if ($data->type == "physique") {
+            if($data->type == "physique") {
 
                 $repository = $this->getDoctrine()->getRepository('AppBundle:Temp');
 

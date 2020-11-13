@@ -19,6 +19,7 @@ class Agence
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
+    
     private $id;
 
     /**
@@ -37,8 +38,8 @@ class Agence
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="dateCreation", type="datetime")
+     *decodeAgencedate
+     * @ORM\Column(name="dateCreation", type="datetime",)
      */
     private $dateCreation;
 

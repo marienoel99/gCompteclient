@@ -84,10 +84,11 @@ class Operation
      * @ORM\Column(name="createdAt", type="string", length=255)
      */
     private $createdAt;
+
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -262,11 +263,10 @@ class Operation
         return $this->typeValeur;
     }
 
-
     /**
-     * Set CreatedAt
+     * Set createdAt
      *
-     * @param \DateTime $createdAt
+     * @param string $createdAt
      *
      * @return Operation
      */
@@ -276,6 +276,7 @@ class Operation
 
         return $this;
     }
+
     /**
      * Get createdAt
      *
@@ -285,5 +286,52 @@ class Operation
     {
         return $this->createdAt;
     }
-}
 
+    /**
+     * Set utilisateur
+     *
+     * @param \AppBundle\Entity\Utilisateur $utilisateur
+     *
+     * @return Operation
+     */
+    public function setUtilisateur(\AppBundle\Entity\Utilisateur $utilisateur = null)
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get utilisateur
+     *
+     * @return \AppBundle\Entity\Utilisateur
+     */
+    public function getUtilisateur()
+    {
+        return $this->utilisateur;
+    }
+
+    /**
+     * Set shemaOperation
+     *
+     * @param \AppBundle\Entity\schemaOperation $shemaOperation
+     *
+     * @return Operation
+     */
+    public function setShemaOperation(\AppBundle\Entity\schemaOperation $shemaOperation = null)
+    {
+        $this->shemaOperation = $shemaOperation;
+
+        return $this;
+    }
+
+    /**
+     * Get shemaOperation
+     *
+     * @return \AppBundle\Entity\schemaOperation
+     */
+    public function getShemaOperation()
+    {
+        return $this->shemaOperation;
+    }
+}

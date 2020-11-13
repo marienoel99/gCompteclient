@@ -1,0 +1,88 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Operation
+ *
+ * @ORM\Table(name="operation")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\OperationRepository")
+ */
+class Operation
+{
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Utilisateur")
+     */
+    private $utilisateur;
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\schemaOperation")
+     */
+    private $shemaOperation;
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="montant", type="float")
+     */
+    private $montant;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateOp", type="datetime")
+     */
+    private $dateOp;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateSaisi", type="datetime")
+     */
+    private $dateSaisi;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateValeur", type="datetime")
+     */
+    private $dateValeur;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codeExercice", type="string", length=255)
+     */
+    private $codeExercice;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codeAgence", type="string", length=255)
+     */
+    private $codeAgence;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="typeValeur", type="string", length=255)
+     */
+    private $typeValeur;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="createdAt", type="string", length=255)
+     */
+    private $createdAt;
+}
+

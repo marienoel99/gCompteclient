@@ -1,0 +1,30 @@
+
+
+{% if tp == "personne physique" %}
+    {% for personne in pers %}
+
+        <div class="clientT" id="{{ personne.tel }}" data-key="p">
+            <div class="clientIcon">
+                <img src="{{ asset('client.svg') }}"/>
+            </div>
+            <div class="clientInf">
+                <div>{{personne.nom}} {{personne.prenom}}</div>
+                <div>{{personne.tel}}</div>
+            </div>
+        </div>
+     
+    {% endfor %}
+{% else %}
+        {% for personne in pers %}
+        
+            <div class="clientT" id="{{personne.tel}}" data-key="m">
+                <div class="clientIcon">
+                    <img src="{{ asset('client.svg') }}"/>
+                </div>
+                <div class="clientInf">
+                    <div>{{personne.representant}} {{personne.raisonSocial}}</div>
+                    <div>{{personne.tel}}</div>
+                </div>
+            </div>
+        {% endfor %}
+{% endif %}

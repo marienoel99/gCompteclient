@@ -1,0 +1,16 @@
+
+<div class="clientRoot">
+    <div class="clientTitle">Nouvelle opération</div>
+    {{ form_start(form,{'attr':{'class':'choixPersonne','action': path('opera'), 'method': 'POST' }} ) }}
+
+        <h4 id="inf">Veuillez remplir ce formulaire</h4>
+        <div class="opdiv">
+            {{ form_widget(form.typeValeur,{'attr':{'label':' '}}) }}
+            {{ form_widget(form.shemaOperation,{'attr':{'label':' '}}) }}
+            {{ form_widget(form.montant,{'attr':{'label':' ','placeholder':' montant...'}}) }}
+            {{ form_widget(form.createdAt,{'attr':{'label':' '}}) }}
+        </div>
+
+        <button type="submit" class="choixButton">valider</button>
+    {{ form_end(form) }}
+</div>

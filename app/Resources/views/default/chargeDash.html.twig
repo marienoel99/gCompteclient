@@ -1,6 +1,10 @@
 {% extends 'base.html.twig' %}
 {% block body %}
     <div class="chargeRoot">
+        {% for message in app.session.flashbag.get('success') %}
+            <h4 id="me">{{ message }}</h4>
+        {% endfor %}
+
         <div id='title' class="chargeTitle">chargé / tableau de bord </div>
         <img id="back" class="back" src="{{ asset('arrow.svg') }}">
         <div class="chargeNav">

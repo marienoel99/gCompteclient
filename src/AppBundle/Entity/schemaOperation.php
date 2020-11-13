@@ -128,5 +128,11 @@ class schemaOperation
     {
         return $this->dateSchema;
     }
+
+
+    public function __toString(): ?string
+    {
+        return $this->getLibeleSchema();
+    }
 }
 

@@ -4,7 +4,7 @@
         <div class="listeClient">
             <div class="listeT">
                 <div class="listeTdiv1">Liste des clients</div>
-                <select>
+                <select id='el'>
                     <option>personne physique</option>
                     <option>personne morale</option>
                 </select>
@@ -14,72 +14,17 @@
                     <input type="'text" placeholder="Rechercher un client">
                 </div>
             </div>
-            <div>
-                <div class="client">
-                    <div class="clientIcon">
-                        <img src="{{ asset('client.svg') }}"/>
-                    </div>
-                    <div class="clientInf">
-                        <div>Francis OLODO</div>
-                        <div>96 83 26 03</div>
-                    </div>
-                </div>
-                <div class="client">
-                    <div class="clientIcon">
-                        <img src="{{ asset('client.svg') }}"/>
-                    </div>
-                    <div class="clientInf">
-                        <div>Francis OLODO</div>
-                        <div>96 83 26 03</div>
-                    </div>
-                </div>
-                <div class="client">
-                    <div class="clientIcon">
-                        <img src="{{ asset('client.svg') }}"/>
-                    </div>
-                    <div class="clientInf">
-                        <div>Francis OLODO</div>
-                        <div>96 83 26 03</div>
-                    </div>
-                </div>
-                <div class="client">
-                    <div class="clientIcon">
-                        <img src="{{ asset('client.svg') }}"/>
-                    </div>
-                    <div class="clientInf">
-                        <div>Francis OLODO</div>
-                        <div>96 83 26 03</div>
-                    </div>
-                </div>
-                <div class="client">
-                    <div class="clientIcon">
-                        <img src="{{ asset('client.svg') }}"/>
-                    </div>
-                    <div class="clientInf">
-                        <div>Francis OLODO</div>
-                        <div>96 83 26 03</div>
-                    </div>
-                </div>
-                <div class="client">
-                    <div class="clientIcon">
-                        <img src="{{ asset('client.svg') }}"/>
-                    </div>
-                    <div class="clientInf">
-                        <div>Francis OLODO</div>
-                        <div>96 83 26 03</div>
-                    </div>
-                </div>
+            <div id='va'>
+            {% include "default/l.html.twig" with pers %}
             </div>
         </div>
         <div class="operation">
-            <div class="initOperation">
-                <div class="operationTitle">Information du client</div>
-                <div class="infoClient">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
+            <div class="initOperation" id="ini">
+                <div class="operationTitle">Nouvelle opération, choisissez un client pour initier l'opération</div>
+                
+                
             </div>
         </div>
+         <script src="{{ asset('js/operation.js') }}"></script>
     </div>
 {% endblock %}
