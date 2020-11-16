@@ -99,10 +99,6 @@ abstract class Personne
     {
         return $this->tel;
     }
-    
-
-
-
 
     /**
      * Set status
@@ -151,8 +147,6 @@ abstract class Personne
     {
         return $this->createdAt;
     }
-
-
 
 
     /**

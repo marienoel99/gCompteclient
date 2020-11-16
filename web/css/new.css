@@ -14,7 +14,7 @@
     width: 23%;
     background-color: white;
     color: #01579b;
-    border-radius: 10px;
+    border-radius:3px;
     height: 40px;
     border: 0.2px solid rgba(0, 0, 0, 0.1);
 }
@@ -36,7 +36,6 @@
     height: 50px;
 }
 .infop div{
-
     display:flex;
     width: 33%;
     flex-direction: row;
@@ -47,7 +46,7 @@
     font-size: 13px;
     text-align: center;
     color: #01579b;
-
-
-
+}
+#idc{
+    visibility: hidden;
 }

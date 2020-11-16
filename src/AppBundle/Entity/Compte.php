@@ -43,9 +43,9 @@ class Compte
      */
     private $intituleCompte;
     /**
-     * @var string
+     * @var float
      *
-     * @ORM\Column(name="solde", type="string", length=255)
+     * @ORM\Column(name="solde", type="float", length=255)
      */
     private $solde;
 
@@ -200,7 +200,7 @@ class Compte
     /**
      * Set solde
      *
-     * @param string $solde
+     * @param float $solde
      *
      * @return Compte
      */
@@ -214,7 +214,7 @@ class Compte
     /**
      * Get solde
      *
-     * @return string
+     * @return float
      */
     public function getSolde()
     {

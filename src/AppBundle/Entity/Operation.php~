@@ -35,12 +35,7 @@ class Operation
      * @ORM\Column(name="montant", type="float")
      */
     private $montant;
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="solde", type="float")
-     */
-    private $solde;
+
     /**
      * @var \DateTime
      *
@@ -69,12 +64,6 @@ class Operation
      */
     private $codeExercice;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="codeAgence", type="string", length=255)
-     */
-    private $codeAgence;
 
     /**
      * @var string
@@ -82,6 +71,12 @@ class Operation
      * @ORM\Column(name="typeValeur", type="string", length=255)
      */
     private $typeValeur;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="idc", type="string", length=255)
+     */
+    private $idc;
 
     /**
      * @var \DateTime
@@ -339,4 +334,5 @@ class Operation
     {
         return $this->shemaOperation;
     }
+
 }

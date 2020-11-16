@@ -64,12 +64,6 @@ class Operation
      */
     private $codeExercice;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="codeAgence", type="string", length=255)
-     */
-    private $codeAgence;
 
     /**
      * @var string
@@ -77,6 +71,7 @@ class Operation
      * @ORM\Column(name="typeValeur", type="string", length=255)
      */
     private $typeValeur;
+
 
     /**
      * @var \DateTime
@@ -334,5 +329,6 @@ class Operation
     {
         return $this->shemaOperation;
     }
+
 
 }

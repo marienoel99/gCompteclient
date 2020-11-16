@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Compte;
 use AppBundle\Entity\Operation;
 use AppBundle\Entity\personnePhysique;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -67,17 +68,40 @@ class CaissierController extends Controller
         $operation=new Operation();
         $form=$this->createForm('AppBundle\Form\OperationType', $operation);
         $form->handleRequest($request);
+
+
         if ($form->isSubmitted() && $form->isValid()) {
             $manager=$this->getDoctrine()->getManager();
 
+            $idCompte=json_decode($request->getContent());
+            dump($idCompte);die();
+            $repo=$this->getDoctrine()->getRepository('AppBundle:Compte');
+            $compte=$repo->findOneBy(array('numCompte'=>$idCompte));
+            $solde=$compte->getSolde();
             $operation->setCodeAgence('');
             $operation->setCodeExercice('2020');
             $operation->setDateSaisi(new \DateTime());
             $operation->setTypeValeur('espèce');
             $operation->setCreatedAt(new \DateTime());
-
+            $operation->setDateValeur(new \DateTime());
             $manager->persist($operation);
+            if($operation->getTypeValeur()=="dépot"){
+                $montantae=$operation->getMontant() + $solde;
+                $comp=new Compte();
+                $comp->setSolde($montantae);
+                $compte->setSolde($montantae);
+                $manager->persist($comp);
+
+            }else{
+                $montantae=$operation->getMontant() - $solde;
+                $comp=new Compte();
+                $comp->setSolde($montantae);
+                $manager->persist($comp);
+            }
+
+
             $manager->flush();
+            return $this->redirectToRoute('operation');
         }
 
        if($request->getContent()){
