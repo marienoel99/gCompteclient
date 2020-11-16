@@ -1,16 +1,43 @@
 
-<div class="clientRoot">
+<div class="clientRoo">
+    <div class="infop">
+         {% if type=='physique' %}
+            <div>
+                <div class="lab">Nom:</div>
+                <div>{{ res.nom }}</div>
+            </div>
+            <div>
+                <div class="lab">Prenom:</div>
+                <div>{{ res.prenom }}</div>
+            </div>
+            <div>
+                <div class="lab">N° de compte:</div>
+                <div>{{ inf.numCompte }}</div>
+            </div>
+        {% else %}
+            <div>
+                <div class="lab">Raison sociale:</div>
+                <div>{{ res.raisonSocial }}</div>
+            </div>
+            <div>
+                <div class="lab">Représentant:</div>
+                <div>{{ res.representant}}</div>
+            </div>
+            <div>
+                <div class="lab">N° de compte:</div>
+                <div>{{ inf.numCompte }}</div>
+            </div>
+        {% endif %}
+    </div>
     <div class="clientTitle">Nouvelle opération</div>
     {{ form_start(form,{'attr':{'class':'choixPersonne','action': path('opera'), 'method': 'POST' }} ) }}
-
         <h4 id="inf">Veuillez remplir ce formulaire</h4>
         <div class="opdiv">
             {{ form_widget(form.typeValeur,{'attr':{'label':' '}}) }}
-            {{ form_widget(form.shemaOperation,{'attr':{'label':' '}}) }}
+            {{ form_widget(form.shemaOperation,{'attr':{'label':' '}})}}
             {{ form_widget(form.montant,{'attr':{'label':' ','placeholder':' montant...'}}) }}
-            {{ form_widget(form.createdAt,{'attr':{'label':' '}}) }}
+            {{ form_widget(form.dateOp,{'attr':{'label':' '}}) }}
         </div>
-
         <button type="submit" class="choixButton">valider</button>
     {{ form_end(form) }}
 </div>

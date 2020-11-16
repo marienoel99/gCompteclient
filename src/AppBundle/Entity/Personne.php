@@ -53,15 +53,15 @@ abstract class Personne
 
 
     /**
-     * @var string
+     * @var \DateTime
      *
-     * @ORM\Column(name="createdAt", type="string", length=255)
+     * @ORM\Column(name="createdAt", type="datetime", length=255)
      */
     private $createdAt;
     /**
      * @var string
      *
-     * @ORM\Column(name="updateAt", type="string", length=255)
+     * @ORM\Column(name="updateAt", type="datetime", length=255)
      */
     private $updateAt;
 
@@ -129,12 +129,10 @@ abstract class Personne
     }
 
 
-
-
     /**
      * Set CreatedAt
      *
-     * @param string $createdAt
+     * @param \DateTime $createdAt
      *
      * @return Personne
      */
@@ -147,7 +145,7 @@ abstract class Personne
     /**
      * Get createdAt
      *
-     * @return string
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -160,7 +158,7 @@ abstract class Personne
     /**
      * Set updateAt
      *
-     * @param string $updateAt
+     * @param \DateTime $updateAt
      *
      * @return Personne
      */
@@ -173,7 +171,7 @@ abstract class Personne
     /**
      * Get updateAt
      *
-     * @return string
+     * @return \DateTime
      */
     public function getUpateAt()
     {

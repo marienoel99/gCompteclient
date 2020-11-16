@@ -55,4 +55,100 @@ class PersonneMoral extends Personne
 
 
 
+
+    /**
+     * Set raisonSocial
+     *
+     * @param string $raisonSocial
+     *
+     * @return PersonneMoral
+     */
+    public function setRaisonSocial($raisonSocial)
+    {
+        $this->raisonSocial = $raisonSocial;
+
+        return $this;
+    }
+
+    /**
+     * Get raisonSocial
+     *
+     * @return string
+     */
+    public function getRaisonSocial()
+    {
+        return $this->raisonSocial;
+    }
+
+    /**
+     * Set representant
+     *
+     * @param string $representant
+     *
+     * @return PersonneMoral
+     */
+    public function setRepresentant($representant)
+    {
+        $this->representant = $representant;
+
+        return $this;
+    }
+
+    /**
+     * Get representant
+     *
+     * @return string
+     */
+    public function getRepresentant()
+    {
+        return $this->representant;
+    }
+
+    /**
+     * Set registre
+     *
+     * @param string $registre
+     *
+     * @return PersonneMoral
+     */
+    public function setRegistre($registre)
+    {
+        $this->registre = $registre;
+
+        return $this;
+    }
+
+    /**
+     * Get registre
+     *
+     * @return string
+     */
+    public function getRegistre()
+    {
+        return $this->registre;
+    }
+
+    /**
+     * Set ifu
+     *
+     * @param string $ifu
+     *
+     * @return PersonneMoral
+     */
+    public function setIfu($ifu)
+    {
+        $this->ifu = $ifu;
+
+        return $this;
+    }
+
+    /**
+     * Get ifu
+     *
+     * @return string
+     */
+    public function getIfu()
+    {
+        return $this->ifu;
+    }
 }

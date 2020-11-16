@@ -81,7 +81,7 @@ class Operation
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="createdAt", type="string", length=255)
+     * @ORM\Column(name="createdAt", type="datetime", length=255)
      */
     private $createdAt;
 
@@ -334,4 +334,5 @@ class Operation
     {
         return $this->shemaOperation;
     }
+
 }

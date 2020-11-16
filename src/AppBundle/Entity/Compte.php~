@@ -22,6 +22,10 @@ class Compte
      */
     private $id;
     /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Personne")
+     */
+    private $personne;
+    /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Agence")
      */
     private $agence;
@@ -38,20 +42,20 @@ class Compte
      * @ORM\Column(name="intituleCompte", type="string", length=255)
      */
     private $intituleCompte;
-
     /**
      * @var string
      *
-     * @ORM\Column(name="dateCreation", type="string")
+     * @ORM\Column(name="solde", type="string", length=255)
+     */
+    private $solde;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateCreation", type="datetime")
      */
     private $dateCreation;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="signatairePrl", type="string", length=255)
-     */
-    private $signatairePrl;
 
     /**
      * @var string
@@ -59,12 +63,14 @@ class Compte
      * @ORM\Column(name="status", type="string", length=255)
      */
     private $status;
+    
+
 
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -122,7 +128,7 @@ class Compte
     /**
      * Set dateCreation
      *
-     * @param string $dateCreation
+     * @param \DateTime $dateCreation
      *
      * @return Compte
      */
@@ -136,35 +142,11 @@ class Compte
     /**
      * Get dateCreation
      *
-     * @return string
+     * @return \DateTime
      */
     public function getDateCreation()
     {
         return $this->dateCreation;
-    }
-
-    /**
-     * Set signatairePrl
-     *
-     * @param string $signatairePrl
-     *
-     * @return Compte
-     */
-    public function setSignatairePrl($signatairePrl)
-    {
-        $this->signatairePrl = $signatairePrl;
-
-        return $this;
-    }
-
-    /**
-     * Get signatairePrl
-     *
-     * @return string
-     */
-    public function getSignatairePrl()
-    {
-        return $this->signatairePrl;
     }
 
     /**
@@ -190,5 +172,28 @@ class Compte
     {
         return $this->status;
     }
-}
 
+    /**
+     * Set agence
+     *
+     * @param \AppBundle\Entity\Agence $agence
+     *
+     * @return Compte
+     */
+    public function setAgence(\AppBundle\Entity\Agence $agence = null)
+    {
+        $this->agence = $agence;
+
+        return $this;
+    }
+
+    /**
+     * Get agence
+     *
+     * @return \AppBundle\Entity\Agence
+     */
+    public function getAgence()
+    {
+        return $this->agence;
+    }
+}

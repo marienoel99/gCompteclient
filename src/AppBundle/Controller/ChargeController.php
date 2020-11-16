@@ -73,17 +73,20 @@ class ChargeController extends Controller
                 $personnePhysique->setTel($resu[0]->getTel());
                 $personnePhysique->setUrlCarte($newFilename);
                 $personnePhysique->setStatus('actif');
-                $personnePhysique->setCreatedAt('22-12-99');
-                $personnePhysique->setUpdateAt('22-12-99');
+                $personnePhysique->setCreatedAt(new \DateTime());
+                $personnePhysique->setUpdateAt(new \DateTime());
                 $manager = $this->getDoctrine()->getManager();
                 $manager->persist($personnePhysique);
-                $compte->setDateCreation('22-12-99');
+
+
+                $compte->setDateCreation(new \DateTime());
+
                 $compte->setNumCompte(uniqid());
                 $compte->setIntituleCompte('francis BOA');
                 $compte->setStatus('actif');
                 $repository = $this->getDoctrine()->getRepository('AppBundle:Agence');
                 $reu = $repository->find(1);
-                $compte->setAgence($reu);
+                
                 $manager->persist($compte);
                 $manager->flush();
                 $request->getSession()->getFlashBag()->add('success', 'Informations transmise');
@@ -138,11 +141,11 @@ class ChargeController extends Controller
 
             $personneMoral->setIfu($newFilename2);
 
-            $personneMoral->setCreatedAt('22-12-99');
-            $personneMoral->setUpdateAt('22-12-99');
+            $personneMoral->setCreatedAt(new \DateTime());
+            $personneMoral->setUpdateAt(new \DateTime());
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($personneMoral);
-            $compte->setDateCreation('22-12-99');
+            $compte->setDateCreation(new \DateTime());
             $compte->setNumCompte(uniqid());
             $compte->setIntituleCompte('francis BOA');
             $compte->setStatus('actif');

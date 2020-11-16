@@ -1,12 +1,13 @@
-window.onload=function(){
-    setTimeout(function(){
-        document.getElementById("me").innerHTML=" ";
-        document.getElementById("me").style.color="green";
-    },3000)
+const host = '127.0.0.1'
+window.onload = function() {
+    setTimeout(function() {
+        document.getElementById("me").innerHTML = " ";
+        document.getElementById("me").style.color = "green";
+    }, 3000)
 
 }
 document.getElementById('nouveau').onclick = function() {
-    fetch('http://127.0.0.1:8000/nouveau', {
+    fetch(`http://${host}:8000/nouveau`, {
         method: 'GET'
     }).then(res => {
         return res.text()
@@ -26,7 +27,7 @@ document.getElementById('nouveau').onclick = function() {
                 type: target.type.value
             }
 
-            fetch('http://127.0.0.1:8000/nouveaup', {
+            fetch(`http://${host}:8000/nouveaup`, {
                 method: 'POST',
                 'Content-Type': 'application/json',
                 body: JSON.stringify(data)

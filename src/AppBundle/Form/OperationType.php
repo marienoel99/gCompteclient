@@ -19,7 +19,7 @@ class OperationType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('montant')->add('createdAt', DateType::class, ['widget' => 'single_text'])
+        $builder->add('montant')->add('dateOp', DateType::class, ['widget' => 'single_text'])
             ->add('typeValeur', ChoiceType::class,['choices'=>[
                 'Dépot' => 'Depot',
                 'Retrait' => 'retrait'],

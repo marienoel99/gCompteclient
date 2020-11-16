@@ -22,6 +22,10 @@ class Compte
      */
     private $id;
     /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Personne")
+     */
+    private $personne;
+    /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Agence")
      */
     private $agence;
@@ -38,11 +42,17 @@ class Compte
      * @ORM\Column(name="intituleCompte", type="string", length=255)
      */
     private $intituleCompte;
-
     /**
      * @var string
      *
-     * @ORM\Column(name="dateCreation", type="string")
+     * @ORM\Column(name="solde", type="string", length=255)
+     */
+    private $solde;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateCreation", type="datetime")
      */
     private $dateCreation;
 
@@ -53,12 +63,14 @@ class Compte
      * @ORM\Column(name="status", type="string", length=255)
      */
     private $status;
+    
+
 
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -116,7 +128,7 @@ class Compte
     /**
      * Set dateCreation
      *
-     * @param string $dateCreation
+     * @param \DateTime $dateCreation
      *
      * @return Compte
      */
@@ -130,14 +142,12 @@ class Compte
     /**
      * Get dateCreation
      *
-     * @return string
+     * @return \DateTime
      */
     public function getDateCreation()
     {
         return $this->dateCreation;
     }
-
-
 
     /**
      * Set status
@@ -185,5 +195,53 @@ class Compte
     public function getAgence()
     {
         return $this->agence;
+    }
+
+    /**
+     * Set solde
+     *
+     * @param string $solde
+     *
+     * @return Compte
+     */
+    public function setSolde($solde)
+    {
+        $this->solde = $solde;
+
+        return $this;
+    }
+
+    /**
+     * Get solde
+     *
+     * @return string
+     */
+    public function getSolde()
+    {
+        return $this->solde;
+    }
+
+    /**
+     * Set personne
+     *
+     * @param \AppBundle\Entity\Personne $personne
+     *
+     * @return Compte
+     */
+    public function setPersonne(\AppBundle\Entity\Personne $personne = null)
+    {
+        $this->personne = $personne;
+
+        return $this;
+    }
+
+    /**
+     * Get personne
+     *
+     * @return \AppBundle\Entity\Personne
+     */
+    public function getPersonne()
+    {
+        return $this->personne;
     }
 }

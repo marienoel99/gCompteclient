@@ -1,8 +1,9 @@
-const v=[];
+const v = [];
+const host = '127.0.0.1'
 document.getElementById('el').onchange = function(e) {
     document.getElementById('ini').innerHTML = "<div class=\"clientTitle\">Nouvelle opération, choisissez un client pour initier l'opération</div>"
-    document.getElementById('ini').style.border="none"
-    fetch('http://127.0.0.1:8000/caissep', {
+    document.getElementById('ini').style.border = "none"
+    fetch(`http://${host}:8000/caissep`, {
         method: 'POST',
         'Content-Type': 'application/json',
         body: e.target.value
@@ -10,29 +11,29 @@ document.getElementById('el').onchange = function(e) {
         return res.text();
     }).then(res => {
         document.getElementById('va').innerHTML = res
-    }).then(()=>{
-        const v=[];
-        for(var i=0;i<=document.getElementsByClassName('clientT').length - 1;i++){
+    }).then(() => {
+        const v = [];
+        for (var i = 0; i <= document.getElementsByClassName('clientT').length - 1; i++) {
 
-            var a=document.getElementsByClassName('clientT')[i];
+            var a = document.getElementsByClassName('clientT')[i];
             v.push(a);
         }
-        v.forEach((val,index)=>{
-            val.onclick=function(){
-                const data={
-                    i:val.dataset.key,
-                    id:val.id
+        v.forEach((val, index) => {
+            val.onclick = function() {
+                const data = {
+                    i: val.dataset.key,
+                    id: val.id
                 }
-                fetch('http://127.0.0.1:8000/opera', {
+                fetch(`http://${host}:8000/opera`, {
                     method: 'POST',
                     'Content-Type': 'application/json',
-                    body:JSON.stringify(data)
+                    body: JSON.stringify(data)
                 }).then(res => {
                     return res.text();
                 }).then(res => {
                     document.getElementById('ini').innerHTML = res
-                    document.getElementById('ini').style.border ="0.2px solid rgba(0, 0, 0, 0.1)"
-                    document.getElementById('ini').style.height ="250px"
+                    document.getElementById('ini').style.border = "0.2px solid rgba(0, 0, 0, 0.1)"
+                    document.getElementById('ini').style.height = "400px"
                 }).catch(error => {
                     alert(error)
                 })
@@ -45,30 +46,32 @@ document.getElementById('el').onchange = function(e) {
     })
 }
 
-for(var i=0;i<=document.getElementsByClassName('clientT').length - 1;i++){
+for (var i = 0; i <= document.getElementsByClassName('clientT').length - 1; i++) {
 
-    var a=document.getElementsByClassName('clientT')[i];
+    var a = document.getElementsByClassName('clientT')[i];
     v.push(a);
     console.log(v[i])
 }
 
-v.forEach((val,index)=>{
-    val.onclick=function(){
-        const data={
-            i:val.dataset.key,
-            id:val.id
+v.forEach((val, index) => {
+    val.onclick = function() {
+        const data = {
+            i: val.dataset.key,
+            id: val.id
         }
-        fetch('http://127.0.0.1:8000/opera', {
+        fetch(`http://${host}:8000/opera`, {
             method: 'POST',
             'Content-Type': 'application/json',
-            body:JSON.stringify(data)
+            body: JSON.stringify(data)
         }).then(res => {
             return res.text();
         }).then(res => {
 
             document.getElementById('ini').innerHTML = res
-            document.getElementById('ini').style.border ="0.2px solid rgba(0, 0, 0, 0.1)"
-            document.getElementById('ini').style.height ="250px"
+            document.getElementById('ini').style.border = "0.2px solid rgba(0, 0, 0, 0.1)"
+            document.getElementById('ini').style.height = "400px"
+
+
         }).catch(error => {
             alert(error)
         })
@@ -76,4 +79,3 @@ v.forEach((val,index)=>{
 
 
 })
-

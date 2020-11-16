@@ -131,7 +131,9 @@
       <workItem from="1605166231862" duration="27947000" />
       <workItem from="1605194680439" duration="9142000" />
       <workItem from="1605253566633" duration="599000" />
-      <workItem from="1605257685949" duration="28872000" />
+      <workItem from="1605257685949" duration="28952000" />
+      <workItem from="1605513559226" duration="6660000" />
+      <workItem from="1605520540475" duration="11542000" />
     </task>
     <servers />
   </component>
@@ -156,8 +158,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/web/js/operation.js</url>
-          <line>66</line>
-          <properties lambdaOrdinal="-1" />
+          <line>67</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

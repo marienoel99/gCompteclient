@@ -37,6 +37,7 @@ class CaissierController extends Controller
      * @Route("/caissep",name="caissep")
      */
     public function caisseAction(Request $request){
+        
         $data=$request->getContent();
         $result=null;
        if($data=="personne physique"){
@@ -73,6 +74,7 @@ class CaissierController extends Controller
             $operation->setCodeExercice('2020');
             $operation->setDateSaisi(new \DateTime());
             $operation->setTypeValeur('espèce');
+            $operation->setCreatedAt(new \DateTime());
 
             $manager->persist($operation);
             $manager->flush();
@@ -82,12 +84,27 @@ class CaissierController extends Controller
 
             $data=json_decode($request->getContent());
             if($data->i =="p"){
+                $reposit=$this->getDoctrine()->getRepository('AppBundle:personnePhysique');
+                $repos=$this->getDoctrine()->getRepository('AppBundle:Compte');
+                $res=$reposit->findOneBy(array('tel'=>$data->id));
+                $inf=$repos->findOneBy(array('personne'=>$res->getId()));
                 return $this->render('default/newOpera.html.twig',array(
-                    'form'=>$form->createView()
+                    'form'=>$form->createView(),
+                    'res'=>$res,
+                    'inf'=>$inf,
+                    'type'=>'physique'
                 ));
             }else{
+                $reposit=$this->getDoctrine()->getRepository('AppBundle:PersonneMoral');
+                $repos=$this->getDoctrine()->getRepository('AppBundle:Compte');
+                $res=$reposit->findOneBy(array('tel'=>$data->id));
+                $inf=$repos->findOneBy(array('personne'=>$res->getId()));
+                $res=$reposit->findOneBy(array('tel'=>$data->id));
                 return $this->render('default/newOpera.html.twig',array(
-                    'form'=>$form->createView()
+                    'form'=>$form->createView(),
+                    'res'=>$res,
+                    'inf'=>$inf,
+                    'type'=>'moral'
                 ));
             }
         }

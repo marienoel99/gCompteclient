@@ -35,7 +35,12 @@ class Operation
      * @ORM\Column(name="montant", type="float")
      */
     private $montant;
-
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="solde", type="float")
+     */
+    private $solde;
     /**
      * @var \DateTime
      *
@@ -81,8 +86,257 @@ class Operation
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="createdAt", type="string", length=255)
+     * @ORM\Column(name="createdAt", type="datetime", length=255)
      */
     private $createdAt;
-}
 
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set montant
+     *
+     * @param float $montant
+     *
+     * @return Operation
+     */
+    public function setMontant($montant)
+    {
+        $this->montant = $montant;
+
+        return $this;
+    }
+
+    /**
+     * Get montant
+     *
+     * @return float
+     */
+    public function getMontant()
+    {
+        return $this->montant;
+    }
+
+    /**
+     * Set dateOp
+     *
+     * @param \DateTime $dateOp
+     *
+     * @return Operation
+     */
+    public function setDateOp($dateOp)
+    {
+        $this->dateOp = $dateOp;
+
+        return $this;
+    }
+
+    /**
+     * Get dateOp
+     *
+     * @return \DateTime
+     */
+    public function getDateOp()
+    {
+        return $this->dateOp;
+    }
+
+    /**
+     * Set dateSaisi
+     *
+     * @param \DateTime $dateSaisi
+     *
+     * @return Operation
+     */
+    public function setDateSaisi($dateSaisi)
+    {
+        $this->dateSaisi = $dateSaisi;
+
+        return $this;
+    }
+
+    /**
+     * Get dateSaisi
+     *
+     * @return \DateTime
+     */
+    public function getDateSaisi()
+    {
+        return $this->dateSaisi;
+    }
+
+    /**
+     * Set dateValeur
+     *
+     * @param \DateTime $dateValeur
+     *
+     * @return Operation
+     */
+    public function setDateValeur($dateValeur)
+    {
+        $this->dateValeur = $dateValeur;
+
+        return $this;
+    }
+
+    /**
+     * Get dateValeur
+     *
+     * @return \DateTime
+     */
+    public function getDateValeur()
+    {
+        return $this->dateValeur;
+    }
+
+    /**
+     * Set codeExercice
+     *
+     * @param string $codeExercice
+     *
+     * @return Operation
+     */
+    public function setCodeExercice($codeExercice)
+    {
+        $this->codeExercice = $codeExercice;
+
+        return $this;
+    }
+
+    /**
+     * Get codeExercice
+     *
+     * @return string
+     */
+    public function getCodeExercice()
+    {
+        return $this->codeExercice;
+    }
+
+    /**
+     * Set codeAgence
+     *
+     * @param string $codeAgence
+     *
+     * @return Operation
+     */
+    public function setCodeAgence($codeAgence)
+    {
+        $this->codeAgence = $codeAgence;
+
+        return $this;
+    }
+
+    /**
+     * Get codeAgence
+     *
+     * @return string
+     */
+    public function getCodeAgence()
+    {
+        return $this->codeAgence;
+    }
+
+    /**
+     * Set typeValeur
+     *
+     * @param string $typeValeur
+     *
+     * @return Operation
+     */
+    public function setTypeValeur($typeValeur)
+    {
+        $this->typeValeur = $typeValeur;
+
+        return $this;
+    }
+
+    /**
+     * Get typeValeur
+     *
+     * @return string
+     */
+    public function getTypeValeur()
+    {
+        return $this->typeValeur;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param string $createdAt
+     *
+     * @return Operation
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return string
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set utilisateur
+     *
+     * @param \AppBundle\Entity\Utilisateur $utilisateur
+     *
+     * @return Operation
+     */
+    public function setUtilisateur(\AppBundle\Entity\Utilisateur $utilisateur = null)
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get utilisateur
+     *
+     * @return \AppBundle\Entity\Utilisateur
+     */
+    public function getUtilisateur()
+    {
+        return $this->utilisateur;
+    }
+
+    /**
+     * Set shemaOperation
+     *
+     * @param \AppBundle\Entity\schemaOperation $shemaOperation
+     *
+     * @return Operation
+     */
+    public function setShemaOperation(\AppBundle\Entity\schemaOperation $shemaOperation = null)
+    {
+        $this->shemaOperation = $shemaOperation;
+
+        return $this;
+    }
+
+    /**
+     * Get shemaOperation
+     *
+     * @return \AppBundle\Entity\schemaOperation
+     */
+    public function getShemaOperation()
+    {
+        return $this->shemaOperation;
+    }
+}
