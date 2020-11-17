@@ -21,6 +21,10 @@ class Operation
      */
     private $shemaOperation;
     /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\typeOperation")
+     */
+    private $libOperation;
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -331,4 +335,28 @@ class Operation
     }
 
 
+
+    /**
+     * Set libOperation
+     *
+     * @param \AppBundle\Entity\typeOperation $libOperation
+     *
+     * @return Operation
+     */
+    public function setLibOperation(\AppBundle\Entity\typeOperation $libOperation = null)
+    {
+        $this->libOperation = $libOperation;
+
+        return $this;
+    }
+
+    /**
+     * Get libOperation
+     *
+     * @return \AppBundle\Entity\typeOperation
+     */
+    public function getLibOperation()
+    {
+        return $this->libOperation;
+    }
 }

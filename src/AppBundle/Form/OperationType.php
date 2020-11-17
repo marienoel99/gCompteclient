@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 ;
 
 use AppBundle\Entity\schemaOperation;
+use AppBundle\Entity\typeOperation;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -20,9 +21,9 @@ class OperationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('montant')->add('dateOp', DateType::class, ['widget' => 'single_text'])
-            ->add('typeValeur', ChoiceType::class,['choices'=>[
-                'Dépot' => 'Depot',
-                'Retrait' => 'retrait'],
+            ->add('libOperation', EntityType::class,[
+                'label' => 'libOperation',
+                'class' =>typeOperation::class
                 ])
             ->add('shemaOperation', EntityType::class,
                 [

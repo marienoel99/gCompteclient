@@ -73,30 +73,33 @@ class CaissierController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $manager=$this->getDoctrine()->getManager();
 
-            $idCompte=json_decode($request->getContent());
-            dump($idCompte);die();
+            $idCompte=$request->request->get('ic');
             $repo=$this->getDoctrine()->getRepository('AppBundle:Compte');
+            $user=$this->getDoctrine()->getRepository('AppBundle:Utilisateur');
             $compte=$repo->findOneBy(array('numCompte'=>$idCompte));
+            $utilisateur=$user->findOneBy(array('id'=>2));
             $solde=$compte->getSolde();
+
             $operation->setCodeAgence('');
             $operation->setCodeExercice('2020');
             $operation->setDateSaisi(new \DateTime());
             $operation->setTypeValeur('espèce');
             $operation->setCreatedAt(new \DateTime());
             $operation->setDateValeur(new \DateTime());
+            $operation->setUtilisateur($utilisateur);
             $manager->persist($operation);
-            if($operation->getTypeValeur()=="dépot"){
+
+            if($operation->getLibOperation()->getLibOperation()=="dépot"){
                 $montantae=$operation->getMontant() + $solde;
-                $comp=new Compte();
-                $comp->setSolde($montantae);
                 $compte->setSolde($montantae);
-                $manager->persist($comp);
+                $compte->setSolde($montantae);
+                $manager->persist($compte);
 
             }else{
-                $montantae=$operation->getMontant() - $solde;
-                $comp=new Compte();
-                $comp->setSolde($montantae);
-                $manager->persist($comp);
+                $montantae=$solde - $operation->getMontant();
+                $compte->setSolde($montantae);
+                $compte->setSolde($montantae);
+                $manager->persist($compte);
             }
 
 

@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AutentificationController extends Controller
 {
     /**
-     * @Route("/login",name="loginpage")
+     * @Route("/loginal",name="loginpage")
      */
     public function loginAction(Request $request){
         if($request->request->count() >0){

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="chefRoot">
+        <div id="po" class="divembed">
+            <button class="close">fermer</button>
+            <embed id='em'src="" type="application/pdf" />
+        </div>
+        <div class="divTable">
+            <div class="namechoice">
+                <div>Liste des comptes client en attente d'activation</div>
+                <div>
+                    <select class="selec">
+                        <option>personne physique</option>
+                        <option>personne morale</option>
+                    </select>
+                </div>
+            </div>
+            <table class="tablep">
+                <div class="the">
+                    <div>Nom</div>
+                    <div>Prénom</div>
+                    <div>Date de naissance</div>
+                    <div>Téléphone</div>
+                    <div>Mail</div>
+                    <div>Pièce d'identité</div>
+                    <div>Validation</div>
+                    <div>Rejet</div>
+                </div>
+                {% for personne in per %}
+                    <div class="the1">
+                        <div>{{ personne.nom}}</div>
+                        <div>{{ personne.prenom }}</div>
+                        <div>{{ personne.dateNaissance|date('Y-m-d') }}</div>
+                        <div>{{ personne.tel }}</div>
+                        <div>{{ personne.mail }}</div>
+                        <div><button class="af" id={{personne.urlCarte}}>afficher</button></div>
+                        <div><button class="af1" id="{{ personne.tel }}">valider</button></div>
+                        <div><button class="af2" id="{{ personne.tel }}">rejeter</button></div>
+                    </div>
+                {% endfor %}
+            </table>
+        </div>
+        <script src="{{ asset('js/chef.js') }}"></script>
+    </div>
+{% endblock %}

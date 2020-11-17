@@ -117,14 +117,15 @@
 .operationTitle {
     position: absolute;
     display: flex;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
     width: calc(100% - 10px);
-    font-size: 13px;
+    font-size: 14px;
     padding-left: 10px;
-    color: white;
-    background-color: #01579b;
-    height: 35px;
+    color: #01579b;
+    border:1px solid rgba(0,0,200,0.1);
+    height: 50px;
 }
 
 .infoClient {

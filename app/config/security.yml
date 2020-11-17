@@ -1,11 +1,24 @@
 # To get started with security, check out the documentation:
-# https://symfony.com/doc/current/security.html
+# http://symfony.com/doc/current/book/security.html
 security:
 
-    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    encoders:
+        FOS\UserBundle\Model\UserInterface: sha512
+
+    role_hierarchy:
+        ROLE_AGENT:       ROLE_USER
+        ROLE_COMPTABLE:   ROLE_AGENT
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_CHEF_COMPTABLE: ROLE_COMPTABLE
+        ROLE_CONTROLEUR: ROLE_CHEF_COMPTABLE
+        ROLE_CHEF_CONTROLEUR: ROLE_CONTROLEUR
+
+    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory:
-            memory: ~
+        webservice:
+            id: user.webserviceprovider
+
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -15,10 +28,16 @@ security:
 
         main:
             anonymous: ~
-            # activate different ways to authenticate
-            logout_on_user_change: true
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-            #http_basic: ~
+            logout:
+                path:   /logout
+                target: /login
+            guard:
+                authenticators:
+                    - form_authenticator
+            provider: webservice
 
-            # https://symfony.com/doc/current/security/form_login_setup.html
-            #form_login: ~
+    access_control:
+            - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+            - { path: ^/api, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+            #- { path: ^/, roles: ROLE_ADMIN }
+            #- { path: ^/, roles: IS_AUTHENTICATED_FULLY }

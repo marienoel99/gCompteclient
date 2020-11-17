@@ -33,3 +33,15 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+    user.webserviceprovider:
+        class: UserBundle\Security\User\WebserviceUserProvider
+        public: true
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@kernel'
+    form_authenticator:
+        class: UserBundle\Security\FormAuthenticator
+        arguments:
+            - '@router'
+            - '@doctrine.orm.entity_manager'
+            - '@kernel'

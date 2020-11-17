@@ -63,5 +63,9 @@ class typeOperation
     {
         return $this->libOperation;
     }
+    public function __toString(): ?string
+    {
+        return $this->getLibOperation();
+    }
 }
 

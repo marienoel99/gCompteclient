@@ -72,7 +72,7 @@ class ChargeController extends Controller
                 $personnePhysique->setMail($resu[0]->getMail());
                 $personnePhysique->setTel($resu[0]->getTel());
                 $personnePhysique->setUrlCarte($newFilename);
-                $personnePhysique->setStatus('actif');
+                $personnePhysique->setStatus('attente');
                 $personnePhysique->setCreatedAt(new \DateTime());
                 $personnePhysique->setUpdateAt(new \DateTime());
                 $manager = $this->getDoctrine()->getManager();
@@ -86,8 +86,7 @@ class ChargeController extends Controller
                 $compte->setStatus('actif');
                 $repository = $this->getDoctrine()->getRepository('AppBundle:Agence');
                 $reu = $repository->find(1);
-                
-                $manager->persist($compte);
+
                 $manager->flush();
                 $request->getSession()->getFlashBag()->add('success', 'Informations transmise');
                 return $this->redirectToRoute('chargeDash');
@@ -148,11 +147,10 @@ class ChargeController extends Controller
             $compte->setDateCreation(new \DateTime());
             $compte->setNumCompte(uniqid());
             $compte->setIntituleCompte('francis BOA');
-            $compte->setStatus('actif');
+            $compte->setStatus('attente');
             $repository = $this->getDoctrine()->getRepository('AppBundle:Agence');
             $reu = $repository->find(1);
             $compte->setAgence($reu);
-            $manager->persist($compte);
             $manager->flush();
             $request->getSession()->getFlashBag()->add('success', 'Informations transmise');
              return $this->redirectToRoute('chargeDash');

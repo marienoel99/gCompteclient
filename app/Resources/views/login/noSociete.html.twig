@@ -1,0 +1,111 @@
+{% extends 'base.html.twig' %}
+ {% block header %}
+     <div class="container">
+         <div class="row">
+             <div class="col-md-10">
+                 <h4><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Connexion
+                     <small> Entrez vous identifiants pour vous connecter ici</small>
+                 </h4>
+             </div>
+             <div class="col-md-2"></div>
+         </div>
+
+     </div>
+ {% endblock %}
+{% block nav %}
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"> Module Gestion des titres </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+
+            <ul class="nav navbar-nav navbar-right">
+
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    {% set sigle_societe  = app.session.get('sigle_societe') %}
+
+                    <li>
+                        <a href="#">{{ 'menu.nav.welcome'|trans(arguments={}, domain ='menu') }} {{ app.user.username }} </a>
+                    </li>
+                    <li>
+                        <a href="#">  <span class="glyphicon glyphicon-home"> </span> Société : {{ sigle_societe }} </a>
+                    </li>
+                    <li>
+                        <a  href="{{ path('logout') }}  "> <span class="glyphicon glyphicon-log-out " aria-hidden="true"></span> {{ 'menu.nav.logout'|trans(arguments={}, domain='menu') }} </a>
+                    </li>
+
+                {% else %}
+
+                    <li>
+                        <a href="#">{{ 'menu.nav.welcome'|trans(arguments={}, domain ='menu') }}   Anonyme  </a>
+                    </li>
+                    <li>
+                        <a  href=" {{ path('login') }}  "> <span class="glyphicon glyphicon-log-out " aria-hidden="true"></span> Connection {#{ 'menu.nav.logout'|trans(arguments={}, domain='menu') }#} </a>
+                    </li>
+
+                {% endif %}
+
+                <li style="margin-top: 5px;">
+                    <div class="btn-group">
+                        <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            {% if app.request.locale == 'fr' %}
+                                Français
+                            {% elseif app.request.locale == 'en' %}
+                                English
+                            {% endif %}
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            {% set routeName = app.request.attributes.get("_route") %}
+                            {% set routeParams = app.request.attributes.get("_route_params") %}
+                            {% if app.request.locale == 'fr' %}
+                                <li role="presentation" class="main-menu-actif"><a role="menuitem" tabindex="-1"
+                                                                                   href="">Français</a></li>
+                                <li role="presentation" class="divider"></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1"
+                                                           href="{{ path(routeName, routeParams|merge({"_locale": 'en'})) }}">English</a>
+                                </li>
+                            {% elseif app.request.locale == 'en' %}
+                                <li role="presentation"><a role="menuitem" tabindex="-1"
+                                                           href="{{ path(routeName, routeParams|merge({"_locale": 'fr'})) }}">Français</a>
+                                </li>
+                                <li role="presentation" class="divider"></li>
+                                <li role="presentation" class="main-menu-actif"><a role="menuitem" tabindex="-1"
+                                                                                   href="">English</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+{% block menu %}{% endblock %}
+{% block content %}
+
+{% endblock %}
+
+ {% block login  %}
+     <div class="panel panel-default" style="margin-top: 55px;">
+         <div class="panel-heading main-color-bg">
+             <h3 class="panel-title"> Ereur , Aucune société n'est liée à vous </h3>
+         </div>
+
+         <div class="panel-body">
+             <div class="well">
+                <div class=" alert alert-danger">
+                    <span> Vous n'êtes lié à aucune société, veuillez vous rapprocher de l'administrateur </span>
+                </div>
+
+             </div>
+         </div>
+     </div>
+ {% endblock %}

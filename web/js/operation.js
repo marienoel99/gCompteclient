@@ -1,7 +1,7 @@
 const v = [];
 const host = '127.0.0.1'
 document.getElementById('el').onchange = function(e) {
-    document.getElementById('ini').innerHTML = "<div class=\"clientTitle\">Nouvelle opération, choisissez un client pour initier l'opération</div>"
+    document.getElementById('ini').innerHTML = "<div class=\"operationTitle\">Nouvelle opération, choisissez un client pour initier l'opération</div>"
     document.getElementById('ini').style.border = "none"
     fetch(`http://${host}:8000/caissep`, {
         method: 'POST',

@@ -17,3 +17,10 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret: ThisTokenIsNotSoSecretChangeIt
+    oauth_url: 'https://sandbox.user.africabourse.com/web/oauth/v2/token'
+    user_info_url: 'https://sandbox.user.africabourse.com/web/api/user'
+    app_code: G_COMPTE_CLIENT
+    api_publik_key: 14_zwq5mla3ciog848w0cgsg0k4cgscsc0k84k8sc4wscow4c84w
+    api_private_key: 2gkzhdk61zb4gswwwk8ks0scookgcosgwkok0ow00o8kk4c84k
+
+

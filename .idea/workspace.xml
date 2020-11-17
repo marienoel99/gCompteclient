@@ -72,6 +72,7 @@
       <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
       <path value="$PROJECT_DIR$/vendor/psr/log" />
       <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/rmccue/requests" />
     </include_path>
   </component>
   <component name="ProjectId" id="1jEpC3t3FIZDEU2qsO9EzN91Gsv" />
@@ -133,7 +134,11 @@
       <workItem from="1605253566633" duration="599000" />
       <workItem from="1605257685949" duration="28952000" />
       <workItem from="1605513559226" duration="6660000" />
-      <workItem from="1605520540475" duration="20975000" />
+      <workItem from="1605520540475" duration="21085000" />
+      <workItem from="1605552164574" duration="699000" />
+      <workItem from="1605602435946" duration="18053000" />
+      <workItem from="1605621426610" duration="9257000" />
+      <workItem from="1605631336020" duration="8326000" />
     </task>
     <servers />
   </component>
@@ -160,6 +165,11 @@
           <url>file://$PROJECT_DIR$/web/js/operation.js</url>
           <line>67</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/AppKernel.php</url>
+          <line>28</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

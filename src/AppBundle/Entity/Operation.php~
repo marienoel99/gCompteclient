@@ -21,6 +21,10 @@ class Operation
      */
     private $shemaOperation;
     /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\typeOperation")
+     */
+    private $libOperation;
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -71,12 +75,7 @@ class Operation
      * @ORM\Column(name="typeValeur", type="string", length=255)
      */
     private $typeValeur;
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="idc", type="string", length=255)
-     */
-    private $idc;
+
 
     /**
      * @var \DateTime
@@ -334,5 +333,6 @@ class Operation
     {
         return $this->shemaOperation;
     }
+
 
 }
